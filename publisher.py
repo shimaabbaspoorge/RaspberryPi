@@ -54,8 +54,9 @@ def publish_sensor_data(sensor_type, value, timestamp):
         "time_stamp": timestamp,
         "value": value
     }
-    mqttc.publish(topic, json.dumps(payload))
-    print(f"Published to {topic}: {payload}")
+    payload_json = json.dumps(payload)
+    mqttc.publish(topic, payload_json)
+    print(f"Published to {topic}: {payload_json}")
 
 def main():
     last_env_publish = 0
